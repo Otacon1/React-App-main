@@ -1,7 +1,7 @@
 import './App.css';
 import 'antd/dist/reset.css';
 import {Table , Button , Modal, Input} from "antd";
-import {useState} from 'react';
+import {useState , useEffect} from 'react';
 import {EditOutlined , DeleteOutlined} from '@ant-design/icons';
 import React from 'react';
 import Webcam from "react-webcam";
@@ -113,6 +113,19 @@ function App() {
     console.log(webRef.current);
   }
 
+ useEffect(() => {
+    getLocationJs();
+  }, []);
+
+  const getLocationJs = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+    console.log(position);  
+    const { latitude , longitude } = position.coords;
+    setCurrLocationJs({ latitude, longitude });
+  });
+  
+  }
+
 
   /////////////*************************************  MAIN CONTENT OF APP  ********************************************//////////////////////////////////
   return (
@@ -169,6 +182,9 @@ function App() {
           }}/>
         
         </Modal>
+
+        <p>Latitude: {currLocationJs.latitude}</p>
+        <p>Longitude: {currLocationJs.longitude}</p>
     
       </header>
      
