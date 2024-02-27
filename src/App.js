@@ -11,6 +11,7 @@ import {useRef} from 'react'
 function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editingStudent, setEditingStudent] = useState(null);
+  const [currLocationJs , setCurrLocationJs] = useState({});
   const webRef = useRef(null)
   const [dataSource, setDataSource] = useState([
     {
