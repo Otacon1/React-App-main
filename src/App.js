@@ -183,7 +183,8 @@ function App() {
           }}/>
         
         </Modal>
-
+        <br></br>
+        <h2>Your Current Location</h2>
         <p>Latitude: {currLocationJs.latitude}</p>
         <p>Longitude: {currLocationJs.longitude}</p>
     
