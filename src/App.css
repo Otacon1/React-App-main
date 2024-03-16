@@ -10,6 +10,67 @@
   font-size: calc(10px + 2vmin);
 }
 
+/* Styles for larger screens */
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
+/* Styles for the table */
+.ant-table {
+  margin-top: 20px;
+}
+
+/* Styles for buttons */
+.ant-btn {
+  margin-bottom: 10px;
+}
+
+/* Styles for modal */
+.ant-modal {
+  max-width: 600px;
+}
+
+/* Media queries for responsiveness */
+
+/* Adjustments for medium-sized screens */
+@media screen and (max-width: 992px) {
+  .App {
+    padding: 10px;
+  }
+
+  .ant-table {
+    font-size: 14px;
+  }
+}
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .ant-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .ant-modal {
+    max-width: 400px;
+  }
+}
+
+/* Adjustments for extra small screens */
+@media screen and (max-width: 576px) {
+  .ant-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .ant-table {
+    font-size: 12px;
+  }
+
+  .ant-modal {
+    max-width: 300px;
+  }
+}
 
 
