@@ -142,7 +142,7 @@ function App() {
 
         React Webcam
       <Webcam ref={webRef}/>
-      <button type="submit" onClick={() => {
+      <button type="submit" id="btn" onClick={() => {
       showImage()}}>Show Image Info in Console</button>
 
         <Modal
