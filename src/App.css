@@ -26,6 +26,9 @@
 .ant-btn {
   margin-bottom: 10px;
 }
+#btn {
+  color: black;
+}  
 
 /* Styles for modal */
 .ant-modal {
