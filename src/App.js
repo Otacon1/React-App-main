@@ -1,3 +1,4 @@
+// Importing necessary styles and components
 import './App.css';
 import 'antd/dist/reset.css';
 import {Table , Button , Modal, Input} from "antd";
@@ -7,12 +8,14 @@ import React from 'react';
 import Webcam from "react-webcam";
 import {useRef} from 'react'
 
-
+// Define the main function component
 function App() {
+  // State variables for managing editing mode, current editing student, webcam reference, and current location
   const [isEditing, setIsEditing] = useState(false);
   const [editingStudent, setEditingStudent] = useState(null);
   const [currLocationJs , setCurrLocationJs] = useState({});
   const webRef = useRef(null)
+   // State variable for managing student data
   const [dataSource, setDataSource] = useState([
     {
       id: 1,
@@ -39,6 +42,7 @@ function App() {
       address: '11 Newton Avenue'
     }
   ])
+    // Define columns for the table
   const columns = [
     {
       key: '1',
@@ -79,8 +83,9 @@ function App() {
       }
     }
   ]
-
+ // Function to add a new student
   const onAddStudent = () => {
+  // Generate a random ID for the new student
     const randomNumber = parseInt(Math.random() * 1000);
     const newStudent =  {  
       id: randomNumber,
@@ -88,37 +93,39 @@ function App() {
       email: randomNumber + '@gmail.com',
       address: 'Address ' + randomNumber,
     };
-
+  // Update the student data source with the new student
       setDataSource((pre) => {
         return[...pre, newStudent];
       });
   };
-
+ // Function to delete a student
   const onDeleteStudent = (record) => {
+    // Remove the student from the data source based on ID
     setDataSource(pre => {
      return pre.filter(student => student.id !== record.id);
     });
   }
-
+// Function to initiate editing mode for a student
   const EditStudent = (record) => {
       setIsEditing(true)
       setEditingStudent({...record})
   }
-
+// Function to reset editing mode and editing student
   const resetEditing = () => {
     setIsEditing(false);
     setEditingStudent(null);
   }
-
+// Function to show image info in console using webcam reference
   const showImage = () => {
     console.log(webRef.current);
   }
-
+// Hook to fetch current geolocation once on component mount
  useEffect(() => {
     getLocationJs();
   }, []);
-
+// Function to get current geolocation using browser's navigator API
   const getLocationJs = () => {
+    // Extract latitude and longitude from geolocation data
     navigator.geolocation.getCurrentPosition((position) => {
     console.log(position);  
     const { latitude , longitude } = position.coords;
